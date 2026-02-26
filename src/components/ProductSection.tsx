@@ -8,74 +8,69 @@ const ProductSection = () => {
     {
       icon: "🧬",
       title: "~30-50% Key Micronutrients",
-      description: "Not 100%. Because your food already provides some.",
+      desc: "Not 100%. Because your food already provides some.",
     },
     {
       icon: "🌾",
       title: "5-6g Fibre Per Serve",
-      description: "Helping you closer to that daily 25-40g requirement.",
+      desc: "Moving you closer to the daily 25-40g your body needs.",
     },
     {
       icon: "💪",
       title: "Complete Amino Acid Profile",
-      description: "High-quality protein with all essential amino acids.",
+      desc: "High-quality protein, not just any protein.",
     },
   ];
 
   return (
-    <section id="product" ref={ref} className="py-20 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
-      {/* Doodle decorations */}
-      <svg className="absolute top-10 left-10 w-32 h-32 opacity-10" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="2" strokeDasharray="5 5" />
-        <circle cx="50" cy="50" r="25" stroke="currentColor" strokeWidth="2" strokeDasharray="5 5" />
-      </svg>
-
-      <div className="container mx-auto px-4 md:px-8">
-        <div className={`text-center max-w-3xl mx-auto mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <div className="inline-block pill-badge border-primary-foreground/50 text-primary-foreground mb-6">
-            ✨ That's why we built Plainfuel
-          </div>
-          <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl leading-tight mb-6">
-            A bridge — not a replacement.
+    <section id="product" ref={ref} className="py-20 md:py-32 bg-secondary">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <div className={`text-center max-w-3xl mx-auto mb-16 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+          <p className="font-handwritten text-2xl text-primary mb-4">✦ That's why we built Plainfuel</p>
+          <h2 className="heading-lg">
+            A bridge — not<br />
+            a <span className="underline-draw">replacement</span>.
           </h2>
-          <p className="text-xl opacity-90 font-body">
+          <p className="body-mono mt-6 max-w-xl mx-auto">
             Between what your daily diet gives you and what your body consistently needs.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className={`${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+          <div className={`${isVisible ? 'animate-scale-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
             <div className="relative">
-              <div className="bg-primary-foreground/10 rounded-[2rem] p-4 rotate-2 hover:rotate-0 transition-transform duration-500">
-                <img
-                  src={productShot}
-                  alt="Plainfuel nutrition product"
-                  className="w-full h-auto rounded-[1.5rem]"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 pill-badge bg-highlight text-highlight-foreground border-foreground animate-float">
+              <img
+                src={productShot}
+                alt="Plainfuel product"
+                className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
+                loading="lazy"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-foreground text-background rounded-2xl px-5 py-3 font-body text-xs font-bold shadow-lg">
                 Not another supplement! 🚫
               </div>
             </div>
           </div>
 
-          <div className={`space-y-6 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
-            {features.map((feature, i) => (
+          <div className={`space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
+            {features.map((f, i) => (
               <div
-                key={feature.title}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-primary-foreground/15 transition-colors duration-300"
+                key={f.title}
+                className="bg-background rounded-2xl p-6 flex items-start gap-5 shadow-sm hover:shadow-md transition-shadow"
                 style={{ animationDelay: `${0.3 + i * 0.1}s` }}
               >
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">{feature.icon}</span>
-                  <div>
-                    <h3 className="font-heading text-xl mb-1">{feature.title}</h3>
-                    <p className="opacity-80 font-body">{feature.description}</p>
-                  </div>
+                <span className="text-3xl mt-1">{f.icon}</span>
+                <div>
+                  <h3 className="font-heading text-xl text-foreground mb-1">{f.title}</h3>
+                  <p className="body-mono">{f.desc}</p>
                 </div>
               </div>
             ))}
+
+            <div className="bg-primary/5 rounded-2xl p-6 border border-primary/20">
+              <p className="font-handwritten text-xl text-primary">
+                "We are not here to replace your meals. We are here to complete them." ✦
+              </p>
+            </div>
           </div>
         </div>
       </div>

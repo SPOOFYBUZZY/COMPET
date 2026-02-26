@@ -8,58 +8,46 @@ const CTASection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-    }
+    if (email) setSubmitted(true);
   };
 
   return (
-    <section id="cta" ref={ref} className="py-20 md:py-32 bg-foreground text-background">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className={`max-w-2xl mx-auto text-center space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl leading-tight">
-            Come, join the{" "}
-            <span className="text-highlight">fam!</span>
-          </h2>
-          <p className="text-xl opacity-80 font-body">
-            Be the first to know when Plainfuel launches. No spam, just the truth.
-          </p>
+    <section id="cta" ref={ref} className="py-20 md:py-32">
+      <div className={`max-w-[1400px] mx-auto px-6 md:px-10 text-center ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+        <h2 className="heading-lg">
+          Come, join<br />
+          the <span className="underline-draw">fam</span>!
+        </h2>
 
-          {!submitted ? (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                className="flex-1 px-6 py-4 rounded-full bg-background/10 border-2 border-background/30 text-background placeholder:text-background/50 font-body text-lg focus:outline-none focus:border-highlight transition-colors"
-                required
-              />
-              <button
-                type="submit"
-                className="px-8 py-4 rounded-full bg-highlight text-highlight-foreground font-heading text-lg border-2 border-background/30 hover:scale-105 transition-transform duration-200 shadow-[3px_3px_0px_hsl(var(--background)/0.3)]"
-              >
-                Join Waitlist 🚀
-              </button>
-            </form>
-          ) : (
-            <div className="hand-drawn-box border-background/30 inline-block px-8 py-6 bg-background/10 animate-scale-in">
-              <p className="font-heading text-2xl text-highlight">You're in! 🎉</p>
-              <p className="font-body mt-2 opacity-80">We'll keep you posted on all things Plainfuel.</p>
-            </div>
-          )}
+        <p className="body-mono mt-6 max-w-md mx-auto">
+          Be the first to know when Plainfuel launches. No spam, just the truth.
+        </p>
 
-          {/* Social doodles */}
-          <div className="flex justify-center gap-6 pt-8">
-            {["Instagram", "YouTube", "LinkedIn"].map((social) => (
-              <div
-                key={social}
-                className="pill-badge border-background/30 text-background/70 hover:text-highlight hover:border-highlight transition-colors cursor-pointer"
-              >
-                📱 {social}
-              </div>
-            ))}
+        {!submitted ? (
+          <form onSubmit={handleSubmit} className="mt-10 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              className="flex-1 px-5 py-3 rounded-full border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+              required
+            />
+            <button type="submit" className="pill-btn-filled whitespace-nowrap">
+              Join Waitlist 🚀
+            </button>
+          </form>
+        ) : (
+          <div className="mt-10 inline-block bg-primary/10 rounded-2xl px-8 py-6 animate-scale-up">
+            <p className="font-heading text-2xl text-primary">You're in! 🎉</p>
+            <p className="body-mono mt-2">We'll keep you posted.</p>
           </div>
+        )}
+
+        <div className="flex justify-center gap-4 mt-10">
+          {["Instagram", "YouTube", "LinkedIn"].map((s) => (
+            <span key={s} className="pill-btn !text-xs cursor-pointer">📱 {s}</span>
+          ))}
         </div>
       </div>
     </section>

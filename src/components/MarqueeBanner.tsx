@@ -1,23 +1,13 @@
 const MarqueeBanner = () => {
-  const items = [
-    "🥜 REAL BALANCE",
-    "💪 PROTEIN + FIBRE + MICRONUTRIENTS",
-    "🌿 NOT A FAD",
-    "⚡ ONE SIMPLE ADDITION",
-    "🥗 COMPLETE YOUR MEALS",
-    "✨ NO MORE STACKING",
-  ];
+  const text = "BALANCE OVER TRENDS • PROTEIN + FIBRE + MICRONUTRIENTS • ONE SIMPLE ADDITION • NO MORE STACKING • COMPLETE YOUR MEALS • ";
 
   return (
-    <div className="bg-primary py-3 overflow-hidden">
+    <div className="bg-banner py-3 overflow-hidden">
       <div className="marquee-strip">
         <div className="marquee-strip-inner">
-          {[...items, ...items].map((item, i) => (
-            <span
-              key={i}
-              className="mx-8 text-primary-foreground font-heading text-sm md:text-base tracking-wider"
-            >
-              {item}
+          {[0, 1].map((i) => (
+            <span key={i} className="text-banner-foreground font-body text-xs md:text-sm tracking-widest uppercase">
+              {text}{text}
             </span>
           ))}
         </div>
