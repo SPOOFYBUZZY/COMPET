@@ -6,40 +6,39 @@ const BalanceSection = () => {
 
   return (
     <section id="balance" ref={ref} className="py-20 md:py-32">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className={`relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
-            <div className="hand-drawn-box overflow-hidden -rotate-1 hover:rotate-0 transition-transform duration-500">
-              <img
-                src={balanceFood}
-                alt="Balanced nutrition circle of fresh foods"
-                className="w-full h-auto object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="absolute -top-4 -right-4 pill-badge bg-highlight animate-wiggle">
-              ⚖️ Balance!
+          <div className={`relative ${isVisible ? 'animate-scale-up' : 'opacity-0'}`}>
+            <img
+              src={balanceFood}
+              alt="Circle of balanced foods"
+              className="w-full max-w-lg mx-auto rounded-2xl"
+              loading="lazy"
+            />
+            <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-full w-20 h-20 flex items-center justify-center animate-wiggle">
+              <span className="font-handwritten text-lg text-center leading-tight">what<br />we need</span>
             </div>
           </div>
 
-          <div className={`space-y-6 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            <h2 className="section-heading">
-              Take fibre,{" "}
-              <span className="text-primary">for example.</span>
+          <div className={`space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`} style={{ animationDelay: '0.15s' }}>
+            <h2 className="heading-lg">
+              What we need<br />
+              is <span className="underline-draw">balance</span>.
             </h2>
-            <p className="section-body">
-              An adult body needs roughly 25–40 grams of fibre per day. Most of us are nowhere close.
+            <p className="body-mono">
+              For years, it has been established that the human body requires a balance of carbohydrates, fats, fibre, protein, and essential micronutrients.
             </p>
-            <p className="section-body">
-              Urban diets are often low in whole grains, legumes, fruits, and vegetables.
-              And while fibre became a trend recently, the need for it has always existed.
+            <p className="body-mono">
+              They are not optional. Chronic deficiencies can quietly damage the body over time.
             </p>
-            <div className="squiggle-border inline-block px-6 py-3 bg-primary/10">
-              <p className="font-heading text-xl text-foreground">
-                The real problem was never one nutrient.
-                <br />
-                The real problem was <span className="text-primary">imbalance</span>.
-              </p>
+            <p className="body-mono font-bold text-foreground">
+              That is why we built Plainfuel.
+            </p>
+
+            <div className="pt-4">
+              <a href="#product" className="pill-btn">
+                <span className="font-handwritten text-lg">See what's inside →</span>
+              </a>
             </div>
           </div>
         </div>

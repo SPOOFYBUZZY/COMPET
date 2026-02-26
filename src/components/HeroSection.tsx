@@ -1,54 +1,54 @@
 import heroFood from "@/assets/hero-food.webp";
+import productShot from "@/assets/product-shot.webp";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const HeroSection = () => {
   const { ref, isVisible } = useScrollReveal(0.1);
 
   return (
-    <section ref={ref} className="relative overflow-hidden py-16 md:py-24 lg:py-32">
-      {/* Doodle decorations */}
-      <svg className="absolute top-10 right-10 w-24 h-24 text-highlight opacity-60 animate-float" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="3" strokeDasharray="8 6" />
-      </svg>
-      <svg className="absolute bottom-20 left-10 w-16 h-16 text-primary opacity-40 animate-wiggle" viewBox="0 0 100 100" fill="none">
-        <path d="M20 80 Q50 10 80 80" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none" />
-      </svg>
-
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <div className="pill-badge bg-highlight/20">
-              ✋ Stop chasing trends
-            </div>
-            <h1 className="section-heading">
-              We're bringing{" "}
-              <span className="doodle-underline text-primary">balance</span>
-              {" "}back to nutrition.
+    <section ref={ref} className="relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-16 md:py-24 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left: Big heading */}
+          <div className={`space-y-8 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+            <h1 className="heading-xl">
+              We're bringing<br />
+              <span className="underline-draw">balance</span> back<br />
+              to nutrition.
             </h1>
-            <p className="section-body max-w-lg">
-              The internet made us believe there was something wrong with our food.
-              First protein, then fibre, then micronutrients. Each trend shows only half the picture.
+
+            <p className="body-mono max-w-md">
+              We're building India's first<br />
+              balanced-nutrition brand ✦
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#story" className="cta-button">
-                Start from the beginning →
-              </a>
-            </div>
+
+            <a href="#story" className="pill-btn inline-flex">
+              <span className="font-handwritten text-lg">Short story looong of why we exist</span>
+              <span>→</span>
+            </a>
           </div>
 
-          <div className={`relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            <div className="hand-drawn-box overflow-hidden rotate-1 hover:rotate-0 transition-transform duration-500">
-              <img
-                src={heroFood}
-                alt="Balanced healthy food ingredients"
-                className="w-full h-auto object-cover"
-                loading="eager"
-              />
-            </div>
-            {/* Floating doodle arrow */}
-            <svg className="absolute -bottom-6 -left-6 w-20 h-20 text-primary animate-wiggle" viewBox="0 0 80 80" fill="none">
-              <path d="M10 60 Q30 20 70 30" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" />
-              <path d="M55 20 L70 30 L58 38" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          {/* Right: Product images floating */}
+          <div className={`relative ${isVisible ? 'animate-scale-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+            <img
+              src={productShot}
+              alt="Plainfuel nutrition product"
+              className="w-full max-w-md mx-auto lg:ml-auto rounded-2xl"
+              loading="eager"
+            />
+            {/* Floating food image */}
+            <img
+              src={heroFood}
+              alt="Healthy ingredients"
+              className="absolute -bottom-8 -left-8 w-40 h-40 object-cover rounded-xl shadow-xl animate-float hidden lg:block"
+              loading="eager"
+            />
+            {/* Doodle accent - small stars like reference */}
+            <svg className="absolute top-4 -left-4 w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6z" />
+            </svg>
+            <svg className="absolute top-12 left-2 w-5 h-5 text-primary opacity-60" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6z" />
             </svg>
           </div>
         </div>
